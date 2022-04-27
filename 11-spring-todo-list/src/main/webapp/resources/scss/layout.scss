@@ -1,0 +1,202 @@
+@import "vars";
+@import "mixins";
+
+img {
+  vertical-align: top;
+}
+body {
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, 0, transparent 50px) #333;
+  font-family: "Poppins", "Noto Sans KR";
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 18px;
+    text-align: center;
+    color: #111;
+    background-color: #fff;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    @include flexCenter();
+    top: 0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    @include longShadow(darken(#ccc, 10), right, 30);
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+.todo {
+  text-align: center;
+  background-color: #666;
+  .day {
+    font-size: 20px;
+    padding: 15px 0;
+    color: #fff;
+  }
+  .date {
+    font-size: 64px;
+    padding: 30px 0;
+    color: #fff;
+    @include longShadow(darken(#666, 10), right, 100);
+    overflow: hidden;
+  }
+  .inputBox {
+    display: flex;
+    padding: 10px;
+    #todoTxt {
+      height: 40px;
+      box-sizing: border-box;
+      width: calc(100% - 40px);
+    }
+    .btnAdd {
+      width: 40px;
+      height: 40px;
+      background-color: rgb(3, 144, 209);
+      color: #fff;
+    }
+  }
+  .todoList {
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #fff;
+      padding-left: 10px;
+      position: relative;
+      &.done:before {
+        width: calc(100% - 30px);
+      }
+      &:before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 3px;
+        background-color: #f00;
+        border-radius: 100px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.25s ease;
+        pointer-events: none;
+      }
+      .btnDelete {
+        color: #fff;
+      }
+    }
+  }
+}
+.calendarBox {
+  z-index: 3;
+  .inputBox {
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    input {
+      height: 20px;
+      width: 100%;
+      border: none;
+    }
+  }
+  .calendar {
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        background: none;
+        outline: none;
+        border: none;
+      }
+      .monthBox {
+        .month {
+          font-weight: 700;
+        }
+      }
+    }
+    .days {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .days,
+    .dates {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: calc(100% / 7 - 4px);
+          margin: 2px;
+          position: relative;
+          cursor: pointer;
+          &.on {
+            span {
+              background-color: #111;
+            }
+          }
+          &.sun {
+            span {
+              background-color: rgb(236, 17, 17);
+            }
+          }
+          &.today {
+            span {
+              background-color: rgb(17, 148, 236);
+              font-weight: 700;
+              @include longShadow(darken(rgb(17, 148, 236), 10), right, 30);
+            }
+          }
+          &.blank {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+          }
+          &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+          }
+          span {
+            position: absolute;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #666;
+            transition: 0.25s ease;
+            color: #fff;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

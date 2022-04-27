@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjang051.mybatis.gallery">
+	<insert id="insertGallery" parameterType="GalleryDto">
+		INSERT INTO GALLERY VALUES (
+										SEQ_GALLERY.NEXTVAL,
+										#{title},
+										#{contents},
+										#{img},
+										#{realImg},
+										#{category}
+								   )
+	</insert>
+	<select id="getAllList" resultType="GAlleryDto">
+		SELECT * FROM GALLERY ORDER BY NO DESC
+	</select>
+</mapper>

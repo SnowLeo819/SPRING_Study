@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       					   https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean class="com.TISpjh.model.DataDto02" />
+	
+</beans>
+
+	<!-- 프로젝트 작업 시 필요한 bean 들 정의하는 것.. -->
+	<!-- Spring M(dao,dto) v(jsc) c(controller) MVC!! -->
+	<!-- spring container에 띄우기 위한 것들을 정의하는 것 -->

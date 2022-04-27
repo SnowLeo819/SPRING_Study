@@ -1,0 +1,178 @@
+@import "vars";
+@import "mixins";
+
+img {
+  vertical-align: top;
+}
+body {
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 1px,
+      0,
+      transparent 50px
+    )
+    #333;
+  font-family: "Poppins", "Noto Sans KR";
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.overHidden {
+  overflow: hidden;
+}
+
+#header {
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  @include longShadow(darken(#fff, 10), right, 30);
+  font-weight: 700;
+  font-size: 18px;
+  h1 {
+    font-size: 18px;
+  }
+}
+
+.form {
+  margin-top: 100px !important;
+  table {
+    background-color: #fff;
+    .titleWrap {
+      display: flex;
+      align-items: center;
+      #title {
+        width: 600px;
+        margin-right: 20px;
+      }
+      .category {
+        label {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+#filter {
+  margin-top: 100px;
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      padding: 15px 40px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 100px;
+      margin: 0 5px;
+      cursor: pointer;
+      &.on {
+        background-color: #f00;
+      }
+    }
+  }
+}
+
+#list {
+  width: 1200px;
+  margin: 100px auto;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 24%; // 넓이 24%
+      //flex-grow: 1; // 남아있는 넓이를 공평하게 나누어가져라....
+      margin: 0.5%;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      .imgBox {
+        img {
+          width: 100%;
+        }
+      }
+      .info {
+        h2 {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+#insertBtns {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  .btnConfirm {
+    padding: 15px 40px;
+    background-color: #f00;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+#detail {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  overflow: auto;
+  padding-bottom: 10px;
+  .container {
+    width: 1300px;
+    margin: auto;
+  }
+  .btnClose {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .imgBox {
+    img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+  }
+  .replyBox {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between textarea {
+      width: 110px;
+      height: 120px;
+      padding: 15px;
+      color: #111;
+      resize: none;
+      outline: none;
+    }
+    button {
+      background-color: #ccc;
+      color: #111;
+    }
+  }
+  .replyList {
+    .list {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      li {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
